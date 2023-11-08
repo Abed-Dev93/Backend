@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose"
 
-const personnalTrainingSchema = new Schema(
+const personalTrainingSchema = new Schema(
     {
         title: {
             type: String,
@@ -17,6 +17,6 @@ const personnalTrainingSchema = new Schema(
     }
 )
 
-const personnalTrainings = model('PersonnalTrainings', personnalTrainingSchema)
+const personalTrainings = model('PersonalTrainings', personalTrainingSchema)
 
-export default personnalTrainings
+export default personalTrainings

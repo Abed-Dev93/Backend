@@ -50,7 +50,7 @@ export const updateCategory = async (req, res) => {
     try {
         const editCategory = await Category.findByIdAndUpdate({ _id: id }, { title, new: true })
         if (editCategory)
-            res.status(200).json({ message: `Category ${id} has been updated successfully!`, Category: editCategory })
+            res.status(200).send(`Category ${id} has been updated successfully!`)
         else
             res.status(404).send(`Category ${id} has not been found!`)
     }

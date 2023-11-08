@@ -35,7 +35,7 @@ export const updateGymPlan = async (req, res) => {
     try {
         const editGymPlan = await GymPlan.findByIdAndUpdate({ _id: id }, { title, price, features })
         if (editGymPlan)
-            res.status(200).json({ message: `Gym Plan ${id} has been updated successfully!`, Gymplan: editGymPlan })
+            res.status(200).send(`Gym Plan ${id} has been updated successfully!`)
         else
             res.status(404).send(`Gym Plan ${id} has not been found!`)
     }

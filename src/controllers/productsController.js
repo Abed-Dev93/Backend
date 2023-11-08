@@ -76,7 +76,7 @@ export const updateProduct = async (req, res) => {
     try {
         const editProduct = await Product.findByIdAndUpdate({ _id: id }, { title, description, price, image, prodCategory: category._id })
         if (editProduct)
-            res.status(200).json({ message: `Product ${id} has been updated successfully!`, Product: editProduct })
+            res.status(200).send(`Product ${id} has been updated successfully!`)
         else
             res.status(404).send(`Product ${id} has not been found!`)
     }

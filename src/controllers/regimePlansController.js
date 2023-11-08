@@ -73,7 +73,7 @@ export const updateRegimePlan = async (req, res) => {
     try {
         const editRegimePlan = await RegimePlan.findByIdAndUpdate({ _id: id }, { title, description, image, category: category._id })
         if (editRegimePlan)
-            res.status(200).json({ message: `Regime Plan ${id} has been updated successfully!`, RegimePlan: editRegimePlan })
+            res.status(200).send(`Regime Plan ${id} has been updated successfully!`)
         else
             res.status(404).send(`Regime Plan ${id} has not been found!`)
     }

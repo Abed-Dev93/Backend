@@ -36,7 +36,7 @@ export const updateSocialMedia = async (req, res) => {
     try {
         const editSocialMedia = await SocialMedia.findByIdAndUpdate({ _id: id }, { facebook, instagram, whatsapp, youtube })
         if (editSocialMedia)
-            res.status(200).json({ message: `Social Media ${id} has been updated successfully!` })
+            res.status(200).send(`Social Media ${id} has been updated successfully!`)
         else
             res.status(400).send(`Socia Media ${id} has not been found!`)
     }
