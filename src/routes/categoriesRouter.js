@@ -5,7 +5,7 @@ const categoriesRouter = express.Router()
 
 categoriesRouter.post('/create', createCategory)
 categoriesRouter.get('/read', readCategories)
-categoriesRouter.get('/read/:id', readOneCategory)
+categoriesRouter.get('/readOne', readOneCategory)
 categoriesRouter.patch('/update', updateCategory)
 categoriesRouter.delete('/delete', deleteCategory)
 

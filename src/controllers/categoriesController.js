@@ -1,7 +1,7 @@
 import Category from '../models/categoriesModel.js'
 
 export const createCategory = async (req, res) => {
-    const title = req.body
+    const { title } = req.body
     const existingCategory = await Category.findOne({ title: title })
     if (!title)
         return res.status(400).send('This field is required!')
@@ -43,12 +43,12 @@ export const readOneCategory = async (req, res) => {
 }
 
 export const updateCategory = async (req, res) => {
-    const title = req.body
+    const { title } = req.body
     const id = req.body.id
     if (!title)
         return res.status(400).send('This field is required!')
     try {
-        const editCategory = await Category.findByIdAndUpdate({ _id: id }, { title, new: true })
+        const editCategory = await Category.findByIdAndUpdate({ _id: id }, { title })
         if (editCategory)
             res.status(200).send(`Category ${id} has been updated successfully!`)
         else

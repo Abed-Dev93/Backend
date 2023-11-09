@@ -4,13 +4,14 @@ const categorySchema = new Schema(
     {
         title: {
             type: String,
-            required: true
+            required: true,
+            unique: true
         },
         product: {
             type: [Schema.Types.ObjectId],
             ref: 'Products'
         },
-        regimePlane: {
+        regimePlan: {
             type: [Schema.Types.ObjectId],
             ref: 'RegimePlans'
         }
