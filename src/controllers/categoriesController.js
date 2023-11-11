@@ -72,3 +72,16 @@ export const deleteCategory = async (req, res) => {
         res.status(500).send(error)
     }
 }
+
+export const deleteAllCategories = async (req, res) => {
+    try {
+        const removeAllCategories = await Category.deleteMany({})
+        if (removeAllCategories.deletedCount > 0)
+            res.status(200).send('All Categories have been deleted!')
+        else
+            res.status(400).send('Error occured!')
+    }
+    catch (error) {
+        res.status(500).send(error)
+    }
+}

@@ -57,3 +57,16 @@ export const deleteGymPlan = async (req, res) => {
         res.status(500).send(error)
     }
 }
+
+export const deleteAllGymPlans = async (req, res) => {
+    try {
+        const removeGymPlans = await GymPlan.deleteMany({})
+        if (removeGymPlans.deletedCount > 0)
+            res.status(200).send('All Gym plans have been deleted!')
+        else
+            res.status(400).send('Error occured!')
+    }
+    catch (error) {
+        res.status(500).send(error)
+    }
+}

@@ -21,7 +21,7 @@ export const createSocialMedia = async (req, res) => {
 export const readSocialMedia = async (req, res) => {
     try {
         const socialMedias = await SocialMedia.find()
-        res.status(200).json({ SocialMedias: socialMedias })
+        res.status(200).json({ SocialMedia: socialMedias })
     }
     catch (error) {
         res.status(500).send(error)
@@ -53,6 +53,19 @@ export const deleteSocialMedia = async (req, res) => {
             res.status(200).send(`Social Media ${id} has been deleted successfully!`)
         else
             res.status(400).send(`Social Media ${id} has not been found!`)
+    }
+    catch (error) {
+        res.status(500).send(error)
+    }
+}
+
+export const deleteAllSocialMedia = async (req, res) => {
+    try {
+        const removeSocialMedias = await SocialMedia.deleteMany({})
+        if (removeSocialMedias.deletedCount > 0)
+            res.status(200).send('All Social media have been deleted!')
+        else
+            res.status(400).send('Error occured!')
     }
     catch (error) {
         res.status(500).send(error)
